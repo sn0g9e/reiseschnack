@@ -1,14 +1,11 @@
-from . import db
+from datetime import datetime
 import hashlib
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import current_app, request
-from . import db, login_manager
 from markdown import markdown
 import bleach
 from flask_login import UserMixin
+from app.exceptions import ValidationError
+from . import db, login_manager
 
 
 class Role(db.Model):
