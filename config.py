@@ -20,6 +20,10 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
+    @classmethod
+    def init_app(cls, app):
+        Config.init_app(app)
+
 
 class HerokuConfig(ProductionConfig):
     SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
@@ -57,6 +61,8 @@ config = {
     'development': DevelopmentConfig,
     #'testing': TestingConfig,
     'production': ProductionConfig,
+    'heroku': HerokuConfig,
+    'unix': UnixConfig,
 
     'default': DevelopmentConfig
 }
