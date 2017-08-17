@@ -69,7 +69,7 @@ class Post(db.Model):
                         'em', 'i', 'li', 'ol', 'pre', 'strong', 'ul',
                         'h1', 'h2', 'h3', 'p','div', 'iframe', 'img']
         target.body_html = bleach.linkify(bleach.clean(
-            markdown(value, output_format='html'),
+            markdown(value, output_format='html5'),
             tags=allowed_tags, strip=True))
 
     def to_json(self):
