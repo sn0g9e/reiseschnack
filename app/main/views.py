@@ -6,7 +6,7 @@ from .forms import PostForm
 from .. import db
 from ..models import Post
 
-"""
+
 @main.route('/', methods=['GET', 'POST'])
 def index():
     form = PostForm()
@@ -21,8 +21,8 @@ def index():
         error_out=False)
     posts = pagination.items
     return render_template('index.html', form=form, posts=posts,
-                           pagination=pagination)"""
-
+                           pagination=pagination)
+"""
 @main.route('/', methods=['GET', 'POST'])
 def index():
     form = PostForm()
@@ -33,7 +33,7 @@ def index():
         db.session.add(post)
         return redirect(url_for('.index'))
     posts = Post.query.order_by(Post.timestamp.desc()).all()
-    return render_template('index.html', form=form, posts=posts)
+    return render_template('index.html', form=form, posts=posts)"""
 
 
 @main.route('/post/<int:id>')
