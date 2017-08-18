@@ -54,3 +54,7 @@ div.flask-pagedown-preview h3 {
 .post-body h3 {
     font-size: 120%;
 }
+div.flask-pagedown-preview img {
+    width: 100%;
+    height: auto;
+}
