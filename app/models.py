@@ -71,7 +71,8 @@ class Post(db.Model):
                         'iframe', 'br', 'span', 'hr', 'src', 'class']
         allowed_attrs = {'*': ['class'],
                          'a': ['href', 'rel'],
-                         'img': ['src', 'alt', 'class', 'style', 'width', 'height']}
+                         'img': ['src', 'alt', 'class', 'style', 'width', 'height'],
+                         'iframe': ['src', 'width', 'height', 'frameborder', 'style', 'allowfullscreen']}
         target.body_html = bleach.linkify(bleach.clean(
             markdown(value, output_format='html5'),
             tags=allowed_tags, strip=True, attributes=allowed_attrs))
